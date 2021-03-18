@@ -1,0 +1,11 @@
+<!--pages/home_center/test_list/index.wxml-->
+<text>测试云函数返回的数据</text>
+<text>是否为空</text>
+<text wx:for="{{list}}" wx:key="list">
+  <text>{{item.code}}</text>
+</text>
+<text bindtap="jumpto1" class="btn">点击跳转扫码</text>
+<text class="btn">查看设备信息</text>
+<text wx:for="{{datas}}" wx:key="datas">
+  <text>{{item.type}}</text>
+</text>
