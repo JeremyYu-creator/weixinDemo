@@ -2,8 +2,12 @@
 Page({
   data: {
     url: '',
-    list: null,
-    datas: null
+		list: null,
+		isTrue: false,
+		datas1: null,
+		datas2:	null,
+		datas3: null,
+		datas4: null
   },
   onShow() {
     const params2 = {//设备连接信息
@@ -18,17 +22,41 @@ Page({
     wx.cloud.callFunction(params2).then(res =>{
       this.setData({
         list: res.result.data.functions,
-        datas: res.result.data.functions
       })
       console.log('res', res);
-    }).catch(err => console.log('err', err))
+		}).catch(err => console.log('err', err))
+		const uid = wx.getStorageSync("uid")
+		const params10 = {//查询该用户的信息，包括微信相关信息内容
+			// name 云函数的名称，必须使用 ty-service
+			name: "ty-service",
+			data: {
+				action: "user.infos",
+			// params 接口参数
+				params: {
+					"uid": uid
+				}
+			}
+		};
+		
+		wx.cloud.callFunction(params10).then(res =>{
+			console.log('res', res);
+			this.setData({
+				datas2: res.result.data.username
+			})
+		}).catch(err => console.log('err', err)) 
   },
-
+	
   jumpto1() {
     wx.navigateTo({
       url: `plugin://tuya-ap-plugin/step1`,
     });
-  },
+	},
+	productDetail() {
+		this.setData({
+			isTrue: true
+		})
+		console.log('被点击了')
+	},
   onReady() {
 //     const params = {
 //       name: "ty-service",
@@ -104,6 +132,7 @@ const params9 = {//获取uid
 
 wx.cloud.callFunction(params9).then(res =>{
 	console.log('res', res);
+	// datas1: res.result.data
 }).catch(err => console.log('err', err))
 
 // const params6 = {//公共api，进行天气的相关查询
@@ -154,22 +183,10 @@ const params8 = {//查询该用户下的设备
 
 wx.cloud.callFunction(params8).then(res =>{
 	console.log('res', res);
+	this.setData({
+		datas3: res.result.data
+	})
 }).catch(err => console.log('err', err)) 
 
-const params10 = {//查询该用户的信息，包括微信相关信息内容
-	// name 云函数的名称，必须使用 ty-service
-	name: "ty-service",
-	data: {
-		action: "user.infos",
-	// params 接口参数
-		params: {
-      "uid": "ay1615874890668SaRFW"
-		}
-	}
-};
-
-wx.cloud.callFunction(params10).then(res =>{
-	console.log('res', res);
-}).catch(err => console.log('err', err)) 
 }
 })

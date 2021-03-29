@@ -1,0 +1,5 @@
+<!--pages/userinfo/productdetail/index.wxml-->
+<text wx:for="{{list}}" wx:key="list" class="test-text">
+  <text class="list-item">功能：{{item.code}}</text>
+</text>
+<text class="list-item">当前设备种类：{{detail.category}}</text>

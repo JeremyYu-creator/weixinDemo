@@ -1,0 +1,8 @@
+/* pages/userinfo/userdetail/index.wxss */
+.list-item{
+  display: flex;
+  background-color: #fff;
+  padding: 28px 16px 28px 20px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+}

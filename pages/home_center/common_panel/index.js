@@ -74,6 +74,7 @@ Page({
     let roDpList = {};
     let rwDpList = {};
     if (status && status.length) {
+      console.log(status)
       status.map((item) => {
         const { code, value } = item;
         let isExit = functions.find(element => element.code == code);

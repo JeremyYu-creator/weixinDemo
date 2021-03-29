@@ -1,11 +1,24 @@
 <!--pages/home_center/test_list/index.wxml-->
-<text>测试云函数返回的数据</text>
+<text class="test-text">测试云函数返回的数据</text>
 <text>是否为空</text>
-<text wx:for="{{list}}" wx:key="list">
-  <text>{{item.code}}</text>
+<text wx:for="{{list}}" wx:key="list" class="test-text">
+  <text class="test-text">{{item.code}}</text>
 </text>
 <text bindtap="jumpto1" class="btn">点击跳转扫码</text>
-<text class="btn">查看设备信息</text>
-<text wx:for="{{datas}}" wx:key="datas">
+<text class="btn" bindtap="productDetail">查看设备信息</text>
+<text wx:for="{{list}}" wx:key="datas">
   <text>{{item.type}}</text>
 </text>
+<text>{{datas2}}</text>
+<!-- <van-dialog wx:if="isTrue ? true : false">
+  <text>{{datas3.online}}</text>
+  <text>{{datas3.owner_id}}</text>
+  <text>{{datas3.product_id}}</text>
+</van-dialog> -->
+<van-dialog use-slot id="van-dialog" show="{{isTrue}}" title="设备信息">
+  <view class="dalog-info">
+    <text>{{datas3.online}}</text>
+    <text>{{datas3.owner_id}}</text>
+    <text>{{datas3.product_id}}</text>
+  </view>
+</van-dialog>

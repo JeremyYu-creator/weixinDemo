@@ -1,0 +1,20 @@
+/* pages/test/test.wxss */
+.box{
+  padding: 36rpx;
+}
+.title{
+  color: #000;
+  margin-bottom: 30rpx;
+  text-align: center;
+  font-size: 40rpx;
+}
+.ul .li{
+  border-radius: 12rpx;
+  background: #fff;
+  padding: 16rpx;
+  margin-bottom: 24rpx;
+  font-size: 30rpx;
+}
+.ul .li .name , .weight{
+  margin-bottom: 16rpx;
+}

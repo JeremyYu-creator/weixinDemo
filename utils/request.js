@@ -2,7 +2,7 @@
 let count = 5;
 
 export const login = async () => {
-  const params = {
+  const params = {// uid
     name: 'ty-service',
     data: {
       action: 'user.wx-applet.synchronization',
@@ -14,6 +14,10 @@ export const login = async () => {
   };
   wx.cloud.callFunction(params).then(res =>{
     console.log('res', res);
+    wx.setStorage({
+      data: res.result.data.uid,
+      key: 'uid',
+    })
 }).catch(err => console.log('err', err))
   const { uid } = await request(params);
   wx.setStorageSync('uid', uid);
@@ -25,7 +29,7 @@ const setUid = async (params) => {
     data: { action }
   } = params;
   let uid = wx.getStorageSync('uid');
-  const isNoLogin = action !== 'user.wx-applet.synchronization';
+  const isNoLogin = (action !== 'user.wx-applet.synchronization' && action !== 'scales.historyData' && action !== 'device.getListByProduct');
   if (!uid && isNoLogin && count) {
     await login();
     count--;

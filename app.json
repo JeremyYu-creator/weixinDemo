@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/guide/index",
+    "pages/user/index",
     "pages/home_center/device_list/index",
     "pages/home_center/common_panel/index",
     "pages/home_center/device_manage/index",
@@ -8,7 +9,11 @@
     "pages/function_center/device_connect/index",
     "pages/web_view/index",
     "pages/base_function/index",
-    "pages/home_center/test_list/index"
+    "pages/home_center/test_list/index",
+    "pages/userinfo/userdetail/index",
+    "pages/userinfo/productdetail/index",
+    "pages/test/test",
+    "pages/userRecord/userRecord"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -21,7 +26,25 @@
       "version": "3.3.16",
       "provider": "wxd2aa51ffacc3ff86"
     }
-
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "./image/fn.png",
+        "iconPath": "./image/fn.png",
+        "pagePath": "pages/guide/index",
+        "text": "功能"
+      },
+      {
+        "selectedIconPath": "./image/user.png",
+        "iconPath": "./image/user.png",
+        "pagePath": "pages/user/index",
+        "text": "用户"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }

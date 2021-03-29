@@ -1,0 +1,8 @@
+<!--pages/userinfo/userdetail/index.wxml-->
+<text class="list-item">用户的username：{{list.username}}</text>
+<text class="list-item">用户的uid：{{list.uid}}</text>
+<text class="list-item">用户的电话：{{list.mobile || "为空"}}</text>
+<text class="list-item">用户的邮件地址：{{list.email || "为空"}}</text>
+<text class="list-item">用户的昵称：{{list.nick_name || "为空"}}</text>
+<text class="list-item">当前时间：{{list.create_time || "为空"}}</text>
+<text class="list-item">更新时间：{{list.update_time || "为空"}}</text>

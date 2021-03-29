@@ -24,7 +24,7 @@ export const getDeviceList = () => {
     data: {
       action: 'device.getDeviceList',
       params: {
-        "uid": "ay1578921339405Lr3au"
+        "uid": "ay1615874890668SaRFW"// 此处为uid
       }
     }
   })

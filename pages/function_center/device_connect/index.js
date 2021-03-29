@@ -8,6 +8,8 @@ Page({
    */
   data: {
     apUrl: '/pages/web_view/index?urlType=apUrl',
+    clientId: "gueqmddhwsewn8hh5vpd",
+    ticket:"",
     list: [
       {
         name: 'Wi-Fi AP 配网',
@@ -28,7 +30,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getTicket()
   },
 
   /**
@@ -37,13 +39,23 @@ Page({
   onReady: function () {
 
   },
-
+  getTicket:async function (){
+    const uid = wx.getStorageSync("uid")
+    const res = await reqTicket(uid)
+    this.setData({
+      ticket: res.ticket,
+    })
+  },
   gotoPluginpage: async function ({ currentTarget }) {
     const { dataset: { baseurl } } = currentTarget
-    const [{ ticket }, clientId] = await Promise.all([reqTicket(), getClientId()])
+    const uid = wx.getStorageSync("uid")
+    const [{ ticket }, clientId] = await Promise.all([reqTicket(uid), getClientId()])
 
+    // wx.navigateTo({
+    //   url: `${baseurl}?ticket=${ticket}&clientId=${clientId}`,
+    // })
     wx.navigateTo({
-      url: `${baseurl}?ticket=${ticket}&clientId=${clientId}`,
+      url: 'plugin://tuya-ap-plugin/step1?ticket='+this.data.ticket+'&clientId='+this.data.clientId,
     })
   },
 

@@ -2,8 +2,9 @@
   "usingComponents": {
     "van-icon": "@vant/weapp/icon/index",
     "van-circle": "@vant/weapp/circle/index",
-    "van-overlay": "@vant/weapp/overlay/index"
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-dialog": "@vant/weapp/dialog/index"
   },
-  "navigationBarTitleText": "导航页面",
+  "navigationBarTitleText": "用户信息",
   "navigationBarBackgroundColor": "#f8f8f8"
 }

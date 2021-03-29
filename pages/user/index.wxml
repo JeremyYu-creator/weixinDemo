@@ -1,0 +1,44 @@
+<!--pages/user/index.wxml-->
+<view class="root">
+  <!-- <view class="list-item" data-url="{{cloudInner.url}}" bindtap="gotoOtherage">
+    <view class="list-item-header">
+      <view class="list-item-header-name" style="margin-right: 5px">{{cloudInner.isDroped ? "云函数部署":"体验Demo前请先检测云函数部署"}}
+      </view>
+      <block wx:if="{{cloudInner.isDroped}}">
+        <van-icon size="24px" name="passed" color="#00cc99" />
+      </block>
+    </view>
+    <van-icon name="arrow" size="12px" />
+  </view> -->
+
+  <block wx:for="{{list}}" wx:for-item="item">
+    <view class="list-item" data-url="{{item.url}}" bindtap="gotoOtherage">
+      <view class="list-item-header">
+        <view class="list-item-header-name">{{item.name}}</view>
+        <view class="list-item-header-text">{{item.text}}</view>
+      </view>
+      <van-icon name="arrow" size="12px" />
+    </view>
+  </block>
+
+  <!-- <van-overlay show="{{ show }}" bind:click="onClickHide">
+    <view class="over-container">
+      <view class="over-label">请扫码体验涂鸦智能小程序</view>
+      <image src="../../image/tuya.jpg" class="" />
+    </view>
+  </van-overlay> -->
+  <van-overlay show="{{ show }}" bind:click="onClickHide">
+    <view class="over-container">
+      <view class="over-label">此时返回的地区是：{{cityname.name}}</view>
+      <view class="over-label">温度：{{datas.temp}}</view>
+      <view class="over-label">风等级：{{datas.windlevel}}</view>
+      <view class="over-label">风向：{{datas.windDir}}</view>
+      <view class="over-label">天气贴士：{{datas.tips}}</view>
+      <view class="over-label">温度实感：{{datas.realFeel}}</view>
+      <view class="over-label">pm2.5指数：{{datas.pm25}}</view>
+      <view class="over-label">天气情况：{{datas.condition}}</view>
+      <view class="over-label">空气质量指数：{{datas.aqi}}</view>
+      <view class="over-label">风速：{{datas.windSpeed}}</view>
+    </view>
+  </van-overlay>
+</view>

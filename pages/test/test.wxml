@@ -1,0 +1,13 @@
+<!--pages/test/test.wxml-->
+<view class="box">
+  <view class="title">体脂秤称重记录</view>
+  <view class="ul" >
+      <navigator url="/pages/userRecord/userRecord?user_id={{item.user_id}}&weight={{item.wegith}}" wx:for="{{records}}" wx:key="index" class="li">
+      <view class="name">用户名： {{item.nick_name}}</view>
+      <view class="weight">体重： {{item.wegith}}kg</view>
+      <view>称重时间： {{item.create_time}}</view>
+  </navigator>
+</view>
+</view>
+
+  

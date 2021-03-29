@@ -24,7 +24,7 @@
 
 <view class="scroll-view">
   <block wx:if="{{isRwDpListShow}}">
-    <block wx:for="{{rwDpList}}" wx:key="{{item.code}}" wx:for-item="item">
+    <block wx:for="{{rwDpList}}" wx:key="idx" wx:for-item="item" wx:for-index="idx">
       <block wx:if="{{item.type === 'Boolean'}}">
         <Boolean model:isChecked="{{item.value}}" dpCode="{{item.code}}" dpName="{{item.name}}" bind:sendDp="sendDp" />
       </block>

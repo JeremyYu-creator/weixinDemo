@@ -1,0 +1,39 @@
+<!--pages/userRecord/userRecord.wxml-->
+<view class="box">
+    <view class="form">
+        <view class="title">计算体脂</view>
+        <form catchsubmit="formSubmit" catchreset="formReset">
+            <view class="item height">身高：
+                <input class="weui-input" name="height" auto-focus placeholder="请输入身高"/>
+            </view>
+            <view class="item age">年龄：
+                <input class="weui-input" name="age" auto-focus placeholder="请输入年龄"/>
+            </view>
+            <view class="item sex">性别：
+                <radio-group name="radio" name="sex">
+                    <label><radio value="1"/>男</label>
+                    <label><radio value="2"/>女</label>
+                </radio-group>
+            </view>
+            <view class="item btn-area">
+                <button style="margin: 30rpx 0" type="primary" formType="submit">提交</button>
+            </view>
+        </form>
+    </view>
+    <view class="report" wx:if="{{report}}">
+        <view class="report_title">您的体脂报告</view>
+        <view class="bodyinfo">身体得分: {{report.body_score}}</view>
+        <view class="bodyinfo">身型: {{bodyType[report.body_type]}}</view>
+        <view class="bodyinfo">体重: {{report.weight}}</view>
+        <view class="bodyinfo">去脂体重: {{report.ffm}}</view>
+        <view class="bodyinfo">水分: {{report.water}}</view>
+        <view class="bodyinfo">骨量: {{report.bones}}</view>
+        <view class="bodyinfo">肌肉量: {{report.muscle}}</view>
+        <view class="bodyinfo">蛋白质: {{report.protein}}</view>
+        <view class="bodyinfo">基础代谢: {{report.metabolism}}</view>
+        <view class="bodyinfo">内脏脂肪等级: {{report.visceral_fat}}</view>
+        <view class="bodyinfo">体脂: {{report.fat}}</view>
+        <view class="bodyinfo">身体年龄: {{report.body_age}}</view>
+        <view class="bodyinfo">BMI: {{report.bmi}}</view>
+    </view>
+</view>

@@ -1,12 +1,14 @@
 import request from '../request'
 
 // 用户临时票据获取
-export const reqTicket = () => {
+export const reqTicket = (uid) => {
   return request({
     name: 'ty-service',
     data: {
       action: 'system.userTicket',
-      params: {}
+      params: {
+        uid
+      }
     }
   })
 }

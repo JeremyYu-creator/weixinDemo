@@ -45,6 +45,7 @@ Page({
    */
   onShow: async function () {
     const deviceList = await getDeviceList()
+    console.log(deviceList)
     deviceList.forEach(item => {
       item.icon = `https://images.tuyacn.com/${item.icon}`
     })
