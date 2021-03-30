@@ -84,7 +84,7 @@ Page({
   onShareAppMessage: function () {
 
   },
-
+  // 获取体脂秤称重记录
   getScales: function () {
     getScalesRecord(this.data.page , this.data.pagesize).then(res=>{
       console.log(res)
@@ -113,6 +113,7 @@ Page({
       })
     })
   },
+  // 获取设备详情
   getDeviceDetails: function() {
     deviceDetails().then(res=>{
       console.log(res)
@@ -133,6 +134,7 @@ Page({
       })
     })
   },
+  // 上拉加载更多
   loadMore:function(pages , pagesizes) {
     console.log(pages)
     const {records} = this.data
